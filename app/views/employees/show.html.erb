@@ -1,33 +1,32 @@
 <%= turbo_frame_tag :modal do %>
-<div class="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black bg-opacity-50">
+  <div class="flex overflow-y-auto overflow-x-hidden fixed inset-0 z-50 justify-center items-center w-full h-[calc(100%-1rem)] max-h-full bg-black bg-opacity-50">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
-        <div class="relative bg-white rounded-lg shadow">
-
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                <h3 class="text-xl font-semibold text-gray-900">
-                    Employee detail
-                </h3>
-            </div>
-
-            <div class="p-4 md:p-5 space-y-4">
-                <b>First name</b>
-                <%= turbo_frame_tag :employee_name do %>
-                    <%= link_to edit_employee_path(@employee.id) do %>
-                        <%= @employee.name %>
-                    <% end %>
-                <% end %>
-                <br>
-                <b>Email</b>
-                <%= @employee.email %>
-                <br>
-                <b>Status</b>
-                <%= @employee.status ? 'Ativo' : 'Inativo' %>
-            </div>
-
-            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                <%= link_to "Close", employees_path, data: { turbo_frame: "_top" }, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>
-            </div>
+      <div class="relative bg-white rounded-lg shadow">
+        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+          <h3 class="text-xl font-semibold text-gray-900">
+            Employee Detail
+          </h3>
         </div>
+
+        <div class="p-4 md:p-5 space-y-4">
+          <b>First name</b>
+          <%= turbo_frame_tag :employee_name do %>
+            <%= link_to edit_employee_path(@employee.id) do %>
+              <%= @employee.name %>
+            <% end %>
+          <% end %>
+          <br>
+          <b>Email</b>
+          <%= @employee.email %>
+          <br>
+          <b>Status</b>
+          <%= @employee.status ? 'Active' : 'Inactive' %>
+        </div>
+
+        <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+          <%= link_to "Close", employees_path, data: { turbo_frame: "_top" }, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 <% end %>

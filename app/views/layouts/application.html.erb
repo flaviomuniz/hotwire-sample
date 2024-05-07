@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
     <title>Records</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %> <!-- Rails import map support for modular JavaScript -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body>
     <main class="p-8">
       <a href="/"><h1>Employees</h1></a>
-
-      <%= turbo_frame_tag 'notifications' %>
-
+      <%= turbo_frame_tag 'notifications' %> <!-- Turbo Frame for dynamic notification updates -->
       <hr class="my-4">
       <%= yield %>
-
-      <%= turbo_frame_tag :modal %>
+      <%= turbo_frame_tag :modal %> <!-- Placeholder for modal content -->
 
     </main>
   </body>

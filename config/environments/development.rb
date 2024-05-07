@@ -33,9 +33,11 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # configure cache classes
   config.cache_classes = false
 
-  config.hosts << "596d-177-220-186-185.ngrok-free.app"
+  # config ngrok host
+  # config.hosts << "1234-123-123-123.123.ngrok-free.app"
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local

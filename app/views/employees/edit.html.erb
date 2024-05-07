@@ -1,9 +1,9 @@
 <%= turbo_frame_tag :employee_name do %>
-  <%= form_with(model: @employee, url: edit_employee_path(@employee), local: true, data: { turbo_frame: "_top"}) do |form| %>
+  <%= form_with(model: @employee, url: edit_employee_path(@employee), local: true, data: { turbo_frame: "_top" }) do |form| %>
     <%= form.text_field :name, autofocus: true, class: "w-full border-gray-300 rounded-lg", autocomplete: "off" %>
     <div class="mt-2 space-x-3">
-      <%= form.submit "Save", class: "bg-gray-300 rounded-md px-2 py-1.5 cursor-pointer" %>
-      <%= link_to "Cancel", employees_path, class: "text-blue-600" %>
+      <%= form.submit "Save", class: "bg-gray-300 hover:bg-gray-400 rounded-md px-2 py-1.5 cursor-pointer" %>
+      <%= link_to "Cancel", employees_path, class: "text-blue-600 hover:text-blue-700" %>
     </div>
   <% end %>
 <% end %>

@@ -1,11 +1,16 @@
+# rubocop:disable all
+
 class Employee < ApplicationRecord
+  # Associations
   belongs_to :language
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["status", "created_at", "email", "name", "id", "updated_at"]
+  # Defines the attributes that can be searched using the Ransack gem
+  def self.ransackable_attributes(*)
+    %w[status created_at email name id updated_at]
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    ["language"]
+  # Defines the associations that can be included in Ransack search queries
+  def self.ransackable_associations(*)
+    %w[language]
   end
 end

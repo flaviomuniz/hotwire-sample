@@ -2,14 +2,11 @@
   <%= render partial: 'partials/sidebar' %>
 
   <section class="w-full">
-
     <%= render partial: 'partials/search' %>
-
     <%== pagy_info(@pagy) %>
 
-    <%= turbo_frame_tag :results, data: {turbo_action: 'advance'}, class: "space-y-4" do %> <!-- TurboTag usada na aplicação dos filtros -->
-      <!-- turbo_action: 'advance' isso indica que a navegação será registrada no histórico do navegador -->
-
+    <%= turbo_frame_tag :results, data: { turbo_action: 'advance' }, class: "space-y-4" do %>
+      <!-- Table with sorting links -->
       <table class="w-full text-sm text-left rtl:text-right">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -21,22 +18,18 @@
             <th colspan="1"></th>
           </tr>
         </thead>
-
-        <!-- Table content -->
         <tbody>
-          <%= turbo_stream_from "employees_channel" %> <!-- Configura um stream para atualizações ao vivo para a lista de employees, usado para aplicações real-time -->
-          <% @employees.each do |employee| %> <!-- Itera sobre cada empregado na variável de instância @employees -->
-            <%= render partial: 'employee', locals: {employee: employee} %> <!-- Renderiza o partial 'employee' para cada empregado passando a variável local 'employee' -->
+          <%= turbo_stream_from "employees_channel" %>
+          <% @employees.each do |employee| %>
+            <%= render partial: 'employee', locals: { employee: employee } %>
           <% end %>
         </tbody>
-
       </table>
 
-      <!-- Pagination -->
-      <div class="float-center">
+      <!-- Pagination controls centered -->
+      <div class="text-center">
         <%== pagy_nav(@pagy) %>
       </div>
-
     <% end %>
   </section>
 </div>
