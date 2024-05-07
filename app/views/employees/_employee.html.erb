@@ -1,0 +1,36 @@
+<tr class="bg-white border-b <%= 'highlight' if local_assigns[:employee_highlight] %>" id="employee-<%= employee.id %>">
+  <td class="px-6 py-4">
+    <%= turbo_frame_tag :employee_name do %>
+      <%= link_to edit_employee_path(employee.id) do %>
+        <%= highlight(employee.name, params.dig(:q, :name_or_language_name_cont)) %>
+      <% end %>
+    <% end %>
+
+  </td>
+
+  <td class="px-6 py-4">
+    <div class="text-<%= employee.status ? 'green' : 'red' %>">
+      <%= employee.status ? 'Ativo' : 'Inativo' %>
+    </div>
+  </td>
+
+  <td class="px-6 py-4">
+    <%= highlight(employee.language.name, params.dig(:q, :name_or_language_name_cont)) %>
+  </td>
+
+  <td class="px-6 py-4">
+    <%= link_to 'Show (modal)',
+        employee,
+        data: {
+          turbo_frame: :modal
+        },
+        class: 'focus:outlinenone text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2' %>
+
+    <%= link_to 'Show (turbo-false)',
+        employee,
+        data: {
+          turbo: false
+        },
+        class: 'focus:outlinenone text-white bg-blue-300 hover:bg-blue-400 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2' %>
+  </td>
+</tr>

@@ -1,0 +1,10 @@
+<aside>
+  <ul>
+    <%= collection_check_boxes(:q, :language_name_in, Language.all, :name, :name, {}, onChange: 'this.form.requestSubmit();', form: :search_form) do |checkbox| %>
+    <li>
+      <%= checkbox.check_box %>
+      <%= checkbox.label %>
+    </li>
+    <% end %>
+  </ul>
+</aside>
