@@ -138,7 +138,6 @@ GEM
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     pagy (6.1.0)
-    pg (1.5.4)
     psych (5.1.1.1)
       stringio
     puma (6.4.0)
@@ -250,7 +249,6 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pagy
-  pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.1)
   ransack
@@ -260,7 +258,6 @@ DEPENDENCIES
   stimulus-rails
   tailwindcss-rails
   turbo-rails
-  tzinfo-data
   view_component (~> 3.12)
   web-console
 
